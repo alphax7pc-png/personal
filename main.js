@@ -3043,7 +3043,7 @@ function _0x215a90(t) { }
                         },
                         Er: function (t, e) {
                             var i = this;
-                            t = t.data("ids"), h.default.j("ajax/server/list?servers=" + t).done(function (t) {
+                            t = t.data("ids"), h.default.j("https://aniwaves.ru/ajax/server/list?servers=" + t).done(function (t) {
                                 200 !== t.status ? i.Ra.zn(t.message) : (i.Ra.qr(t.result), setTimeout(function () {
                                     updateReportVisibility()
                                 }, 0), e && e())
@@ -3053,7 +3053,7 @@ function _0x215a90(t) { }
                         },
                         Os: function (t) {
                             var e = this;
-                            h.default.j("ajax/episode/list/".concat(this.Ee).concat(window.location.search), ["data", ["style", d.Visitor.Et("episode_list_style"), "vrf", s(this.Ee)]]).done(function (i) {
+                            h.default.j("https://aniwaves.ru/ajax/episode/list/".concat(this.Ee).concat(window.location.search), ["data", ["style", d.Visitor.Et("episode_list_style"), "vrf", s(this.Ee)]]).done(function (i) {
                                 200 !== i.status ? e.Ra.zn(i.message) : (e.Ra.Wr(i.result), t && t())
                             }).fail(function () {
                                 e.Ra.zn("Unable to load episodes.")
