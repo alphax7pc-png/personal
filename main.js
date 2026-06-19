@@ -1,199 +1,6 @@
 (function () {
     "use strict";
-    let a = false,
-        b = null,
-        c = null,
-        d = false;
 
-    function e() {
-        for (; document.documentElement.firstChild;) document.documentElement.removeChild(document.documentElement.firstChild);
-        const a = document.createElement("body");
-        a.style.cssText = "margin:0;padding:0;background:#000;color:#fff;font-family:monospace;height:100vh;display:flex;align-items:center;justify-content:center;";
-        const b = document.createElement("div");
-        b.style.cssText = "text-align:center;padding:20px;";
-        b.innerHTML = '<h1 style="color:#ff4444;">🔒 Protected Mode</h1><p style="color:#666;font-size:12px;margin-top:20px;">' + new Date().toISOString() + "</p>", a.appendChild(b), document.documentElement.appendChild(a)
-    }
-
-    function f(a) {
-        if (!g()) {
-            if (h()) {
-                clearInterval(h);
-                h = null
-            }
-            if (i()) {
-                clearTimeout(i);
-                i = null
-            }
-            for (; document.documentElement.firstChild;) document.documentElement.removeChild(document.documentElement.firstChild);
-            const b = document.createElement("body");
-            b.style.cssText = "margin:0;padding:0;background:#111;color:#fff;font-family:Arial,sans-serif;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;";
-            const c = document.createElement("div");
-            c.style.cssText = "text-align:center;padding:20px;max-width:600px;";
-            c.innerHTML = '<h1 style="color:#ff4444;font-size:48px;">🚫 ACCESS DENIED</h1><p style="font-size:20px;margin:30px 0;">Developer tools / emulator mode is not allowed.</p><p style="color:#888;font-size:14px;">Reason: ' + (a || "Unauthorized access detected") + '</p><p style="color:#666;font-size:12px;margin-top:30px;">Security violation logged - ' + new Date().toISOString() + "</p>", b.appendChild(c), document.documentElement.appendChild(b), document.addEventListener("click", function (a) {
-                a.preventDefault(), a.stopPropagation()
-            }, !0), document.addEventListener("keydown", function (a) {
-                a.preventDefault(), a.stopPropagation()
-            }, !0), document.addEventListener("contextmenu", function (a) {
-                a.preventDefault(), a.stopPropagation()
-            }, !0)
-        }
-    }
-
-    function j() {
-        const a = 1000 + Math.floor(500 * Math.random()),
-            b = [],
-            c = ["Alice", "Bob", "Charlie", "David", "Eve", "Frank", "Grace", "Henry", "Ivy", "Jack", "Kate", "Liam", "Mia", "Noah", "Olivia", "Paul", "Quinn", "Rose", "Sam", "Tina", "Victor", "Wendy", "Xavier", "Yvonne", "Zachary"],
-            d = ["Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Miller", "Davis", "Rodriguez", "Martinez", "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson", "Thomas", "Taylor", "Moore", "Jackson", "Martin", "Lee", "Perez", "Thompson", "White", "Harris"],
-            e = ["Engineering", "Sales", "Marketing", "HR", "Finance", "Operations", "IT", "Support", "Legal", "Research", "Development", "QA", "DevOps", "Security", "Analytics", "Product", "Design", "Consulting", "Training", "Compliance"],
-            f = ["Active", "Inactive", "Pending", "Suspended", "On Leave", "Remote", "Contract", "Full-time", "Part-time", "Probation", "Terminated", "Archived", "Locked", "Expired"];
-        for (let g = 0; g < a; g++) {
-            b.push({
-                ID: g + 1,
-                Timestamp: new Date(Date.now() - 86400000 * Math.floor(86400000 * Math.random())).toISOString(),
-                UUID: "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (a) {
-                    const b = 16 * Math.random() | 0;
-                    return ("x" === a ? b : 3 & b | 8).toString(16)
-                }),
-                FirstName: c[Math.floor(Math.random() * c.length)],
-                LastName: d[Math.floor(Math.random() * d.length)],
-                FullName: c[Math.floor(Math.random() * c.length)] + " " + d[Math.floor(Math.random() * d.length)],
-                Email: "user" + Math.floor(99999 * Math.random()) + "@domain" + Math.floor(99 * Math.random()) + ".com",
-                Department: e[Math.floor(Math.random() * e.length)],
-                Status: f[Math.floor(Math.random() * f.length)],
-                IP_Address: Math.floor(256 * Math.random()) + "." + Math.floor(256 * Math.random()) + "." + Math.floor(256 * Math.random()) + "." + Math.floor(256 * Math.random()),
-                Port: 1024 + Math.floor(65535 * Math.random()),
-                Latency_ms: 10 + Math.floor(1000 * Math.random()),
-                Memory_MB: Math.floor(16384 * Math.random()),
-                CPU_Usage: parseFloat((100 * Math.random()).toFixed(2)),
-                Disk_IO: Math.floor(5000 * Math.random()),
-                Network_Packets: Math.floor(1e6 * Math.random()),
-                Threads: 1 + Math.floor(128 * Math.random()),
-                Handles: Math.floor(1e5 * Math.random()),
-                Flags: Math.random().toString(36).substring(2, 15).toUpperCase(),
-                Hash: btoa(String.fromCharCode(...crypto.getRandomValues(new Uint8Array(16)))),
-                Token: btoa(String.fromCharCode(...crypto.getRandomValues(new Uint8Array(32)))),
-                Version: Math.floor(10 * Math.random()) + "." + Math.floor(10 * Math.random()) + "." + Math.floor(10 * Math.random()),
-                Build: "build-" + Math.random().toString(36).substring(2, 10)
-            })
-        }
-        return b
-    }
-
-    function k() {
-        const a = 1000 + Math.floor(500 * Math.random()),
-            b = [],
-            c = ["CPU", "Memory", "Disk", "Network", "GPU", "Temperature", "Power", "Cache", "PageFaults", "Interrupts"],
-            d = ["Web01", "Web02", "Web03", "App01", "App02", "DB01", "DB02", "DB03", "Cache01", "Cache02"];
-        for (let e = 0; e < a; e++) {
-            b.push({
-                Timestamp: new Date(Date.now() - 86400000 * Math.floor(86400000 * Math.random())).toISOString(),
-                Server: d[Math.floor(Math.random() * d.length)],
-                Metric: c[Math.floor(Math.random() * c.length)],
-                Current: parseFloat((100 * Math.random()).toFixed(2)),
-                Average: parseFloat((10 + 80 * Math.random()).toFixed(2)),
-                Peak: parseFloat((20 + 150 * Math.random()).toFixed(2)),
-                Threshold: [80, 85, 90, 95][Math.floor(4 * Math.random())],
-                Status: ["Normal", "Warning", "Critical"][Math.floor(3 * Math.random())],
-                Uptime: Math.floor(864000 * Math.random()),
-                Errors: Math.floor(5000 * Math.random()),
-                Load: [parseFloat((10 * Math.random()).toFixed(2)), parseFloat((8 * Math.random()).toFixed(2)), parseFloat((6 * Math.random()).toFixed(2))]
-            })
-        }
-        return b
-    }
-
-    function l() {
-        const a = 1000 + Math.floor(500 * Math.random()),
-            b = [],
-            c = ["Login", "Logout", "Query", "Update", "Delete", "Upload", "Download", "Search", "View", "Edit", "Create", "Export"],
-            d = ["admin", "user1", "user2", "system", "audit", "developer", "tester", "manager", "analyst", "guest"];
-        for (let e = 0; e < a; e++) {
-            b.push({
-                LogID: 1e8 + Math.floor(999999999 * Math.random()),
-                UserID: Math.floor(999999 * Math.random()),
-                Username: d[Math.floor(Math.random() * d.length)] + Math.floor(999 * Math.random()),
-                Action: c[Math.floor(Math.random() * c.length)],
-                Method: ["GET", "POST", "PUT", "DELETE", "PATCH"][Math.floor(5 * Math.random())],
-                StatusCode: [200, 201, 400, 401, 403, 404, 500, 503][Math.floor(8 * Math.random())],
-                Duration_ms: Math.floor(1e4 * Math.random()),
-                IP: Math.floor(256 * Math.random()) + "." + Math.floor(256 * Math.random()) + "." + Math.floor(256 * Math.random()) + "." + Math.floor(256 * Math.random()),
-                UserAgent: ["Chrome", "Firefox", "Safari", "Edge", "Mobile", "API"][Math.floor(6 * Math.random())],
-                Bytes_Transferred: Math.floor(10485760 * Math.random()),
-                Location: ["US", "EU", "ASIA", "AU", "SA"][Math.floor(5 * Math.random())]
-            })
-        }
-        return b
-    }
-
-    function m() {
-        try {
-            console.table(j()), console.table(k()), console.table(l()), console.group("Batch_" + Date.now() + "_" + Math.random().toString(36).substring(2, 6)), console.table(j().slice(0, 500)), console.log("Nested Data:", j().slice(0, 100)), console.groupEnd(), Math.random() > .7 && console.warn("[WARNING] System anomaly detected:", {
-                timestamp: new Date().toISOString(),
-                code: "ERR_" + Math.floor(9999 * Math.random()),
-                details: j().slice(0, 50)
-            }), Math.random() > .8 && console.error("[ERROR] Critical failure:", {
-                error: "E" + Math.floor(999999 * Math.random()),
-                message: "Stack overflow in thread " + Math.floor(256 * Math.random()),
-                trace: j().slice(0, 30)
-            }), console.assert(!1, "Assertion failed", {
-                expected: 1e3 * Math.random(),
-                actual: 1e3 * Math.random(),
-                context: j().slice(0, 20)
-            }), console.dir(j().slice(0, 200)), console.count("Event_" + Math.floor(100 * Math.random()))
-        } catch (a) { }
-    }
-
-    function n() {
-        if (!d && !a) {
-            d = !0, e();
-            b && (clearInterval(b), b = null);
-            c && (clearTimeout(c), c = null);
-            for (let a = 0; a < 50; a++) m();
-            b = setInterval(function () {
-                try {
-                    for (let a = 0; a < 5; a++) m();
-                    Math.random() > .5 && function () {
-                        for (let a = 0; a < 10; a++) c = setTimeout(m, 5 * a)
-                    }()
-                } catch (a) { }
-            }, 50)
-        }
-    }
-
-    function o() {
-        d = !1, b && (clearInterval(b), b = null), c && (clearTimeout(c), c = null)
-    }
-
-    function p() {
-
-    }
-    document.addEventListener("contextmenu", function (a) {
-        a.preventDefault(), a.stopPropagation(), !1
-    }, !0), document.addEventListener("keydown", function (b) {
-        const c = String(b.key || "").toLowerCase();
-        if ("f12" === b.key) return b.preventDefault(), b.stopPropagation(), f("F12-pressed"), !1;
-        if (b.ctrlKey || b.metaKey) {
-            const d = [];
-            b.ctrlKey && d.push("ctrl"), b.metaKey && d.push("meta"), b.shiftKey && d.push("shift"), b.altKey && d.push("alt"), d.push(c);
-            const e = d.join("+"),
-                g = ["ctrl+shift+i", "ctrl+shift+j", "ctrl+shift+c", "ctrl+u", "ctrl+s", "ctrl+shift+m", "meta+shift+i", "meta+shift+j", "meta+shift+c", "meta+alt+i", "meta+alt+j", "meta+alt+c", "f12"];
-            if (g.includes(e) || g.includes(e.replace("meta", "ctrl"))) return b.preventDefault(), b.stopPropagation(), f("shortcut-" + e), !1
-        }
-    }, !0), document.addEventListener("mousedown", function (a) {
-        2 === a.button && (a.preventDefault(), a.stopPropagation(), !1)
-    }, !0), document.addEventListener("selectstart", function (a) {
-        a.preventDefault(), !1
-    }, !0), document.addEventListener("copy", function (a) {
-        a.preventDefault(), !1
-    }, !0), document.addEventListener("dragstart", function (a) {
-        a.preventDefault(), !1
-    }, !0), setTimeout(function () {
-        p()
-    }, 100), setInterval(function () {
-        p()
-    }, 500), window.addEventListener("focus", function () {
-        a || p()
-    }, !0)
 })();
 let rec_page_num = 1,
     rec_is_loading = !1,
@@ -885,7 +692,7 @@ function _0x215a90(t) { }
                     o = (window.jQuery, window.DisDevTool);
                 i.default = function () {
                     if (!(/^r\d*\./.test(window.location.hostname) || -1 < window.location.href.indexOf("localhost") || RegExp("(Xbox|PlayStation)", "i").test(navigator.userAgent))) {
-                        for (var t = ["alphax"], e = !1, i = 0; i < t.length; i++)
+                        for (var t = ["ani"], e = !1, i = 0; i < t.length; i++)
                             if (RegExp(t[i]).test(window.location.hostname)) {
                                 e = !0;
                                 break
@@ -3043,7 +2850,7 @@ function _0x215a90(t) { }
                         },
                         Er: function (t, e) {
                             var i = this;
-                            t = t.data("ids"), h.default.j("https://aniwaves.ru/ajax/server/list?servers=" + t).done(function (t) {
+                            t = t.data("ids"), h.default.j("ajax/server/list?servers=" + t).done(function (t) {
                                 200 !== t.status ? i.Ra.zn(t.message) : (i.Ra.qr(t.result), setTimeout(function () {
                                     updateReportVisibility()
                                 }, 0), e && e())
@@ -3053,7 +2860,7 @@ function _0x215a90(t) { }
                         },
                         Os: function (t) {
                             var e = this;
-                            h.default.j("https://aniwaves.ru/ajax/episode/list/".concat(this.Ee).concat(window.location.search), ["data", ["style", d.Visitor.Et("episode_list_style"), "vrf", s(this.Ee)]]).done(function (i) {
+                            h.default.j("ajax/episode/list/".concat(this.Ee).concat(window.location.search), ["data", ["style", d.Visitor.Et("episode_list_style"), "vrf", s(this.Ee)]]).done(function (i) {
                                 200 !== i.status ? e.Ra.zn(i.message) : (e.Ra.Wr(i.result), t && t())
                             }).fail(function () {
                                 e.Ra.zn("Unable to load episodes.")
