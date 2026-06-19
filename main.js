@@ -181,7 +181,7 @@ function clearConsole() {
 }
 
 function loadRecommendations(t) {
-    !rec_is_loading && rec_has_more_pages && (rec_is_loading = !0, $(".loading").show(), $.get("/ajax/v2/recommendations?page=" + t + "&mov_id=" + movieId, function (t) {
+    !rec_is_loading && rec_has_more_pages && (rec_is_loading = !0, $(".loading").show(), $.get("/https://aniwaves.ru/ajax/v2/recommendations?page=" + t + "&mov_id=" + movieId, function (t) {
         t.status ? ($("#recommendations").append(t.html), rec_has_more_pages = t.has_more_pages) : loadTrending(), rec_is_loading = !1, $(".loading").hide()
     }).fail(function () {
         rec_is_loading = !1, $(".loading").hide()
@@ -192,7 +192,7 @@ function loadTrending() {
     $("#recommendations").css({
         overflow: "auto",
         "max-height": "none"
-    }), $(".loading").show(), $.get("/ajax/v2/trending?mov_id=" + movieId, function (t) {
+    }), $(".loading").show(), $.get("/https://aniwaves.ru/ajax/v2/trending?mov_id=" + movieId, function (t) {
         $("#recommendations").append(t.html), $("section.recommended .head .title").text("Trending"), rec_has_more_pages = !1, $(".loading").hide()
     }).fail(function () {
         console.error("Failed to load trending"), $(".loading").hide()
@@ -1073,7 +1073,7 @@ function _0x215a90(t) { }
                         St: function (t) { },
                         fi: function (t, e) {
                             var i = this;
-                            this._i(), n.default.j("ajax/anime/search", ["data", ["keyword", e]]).done(function (t) {
+                            this._i(), n.default.j("https://aniwaves.ru/ajax/anime/search", ["data", ["keyword", e]]).done(function (t) {
                                 i.hi.hide().html(t.result.html).slideDown().activate(), i.ci = i.hi.find(".item"), t.result.linkMore && i.oi.attr("href", t.result.linkMore).show()
                             })
                         },
@@ -1134,7 +1134,7 @@ function _0x215a90(t) { }
                                 maxWidth: 310,
                                 content: "Loading...",
                                 functionBefore: function (e, i) {
-                                    n || (n = !0, a.o.ajax("ajax/anime/tooltip/".concat(t.data("tip")), {
+                                    n || (n = !0, a.o.ajax("https://aniwaves.ru/ajax/anime/tooltip/".concat(t.data("tip")), {
                                         dataType: "html"
                                     }).done(function (t) {
                                         return e.content(t)
@@ -1271,7 +1271,7 @@ function _0x215a90(t) { }
                                 e = {
                                     tz: this.Li
                                 };
-                            a.o.ajax("ajax/schedule", {
+                            a.o.ajax("https://aniwaves.ru/ajax/schedule", {
                                 data: e
                             }).done(function (e) {
                                 t.wt.html(e.result).activate(), t.Vi(), t.Bi(), t.qi()
@@ -1285,7 +1285,7 @@ function _0x215a90(t) { }
                         },
                         $i: function (t) {
                             var e = this;
-                            this.hi.css("opacity", .5), a.o.ajax("ajax/schedule/date", {
+                            this.hi.css("opacity", .5), a.o.ajax("https://aniwaves.ru/ajax/schedule/date", {
                                 data: {
                                     tz: this.Li,
                                     time: t.data("time")
@@ -1335,7 +1335,7 @@ function _0x215a90(t) { }
                         },
                         Yi: function () {
                             var t = this;
-                            a.o.ajax("ajax/user/playing/widget/home").done(function (e) {
+                            a.o.ajax("https://aniwaves.ru/ajax/user/playing/widget/home").done(function (e) {
                                 200 === e.status && e.result.count && t.wt.html(e.result.html).show().activate()
                             })
                         }
@@ -1367,7 +1367,7 @@ function _0x215a90(t) { }
                         ee: function () {
                             var t = this,
                                 e = this.Xt.filter(".active").data("name");
-                            this.hi.css("opacity", .5), a.o.ajax("ajax/home/widget/".concat(e), {
+                            this.hi.css("opacity", .5), a.o.ajax("https://aniwaves.ru/ajax/home/widget/".concat(e), {
                                 data: {
                                     page: this.Ji
                                 }
@@ -1521,7 +1521,7 @@ function _0x215a90(t) { }
                             }, 500)))
                         },
                         ge: function () {
-                            s.default.j("ajax/member/users/update-profile", ["type", "POST", "data", ["settings", this.ce]]).done(function (t) { })
+                            s.default.j("https://aniwaves.ru/ajax/member/users/update-profile", ["type", "POST", "data", ["settings", this.ce]]).done(function (t) { })
                         },
                         ye: function () {
                             var t = n.Storage.get("user.playing");
@@ -1535,12 +1535,12 @@ function _0x215a90(t) { }
                         },
                         ke: function () {
                             var t = this.ye();
-                            t && s.default.j("ajax/user/playing/save", ["type", "POST", "data", ["playing", t, "_csrfToken", csrfToken]]).done(function () {
+                            t && s.default.j("https://aniwaves.ru/ajax/user/playing/save", ["type", "POST", "data", ["playing", t, "_csrfToken", csrfToken]]).done(function () {
                                 n.Storage.remove("user.playing")
                             })
                         },
                         Se: function (t, e) {
-                            0 < this.he && s.default.j("ajax/user/playing/get/".concat(t)).done(function (t) {
+                            0 < this.he && s.default.j("https://aniwaves.ru/ajax/user/playing/get/".concat(t)).done(function (t) {
                                 200 === t.status && e(t.result)
                             })
                         },
@@ -1570,7 +1570,7 @@ function _0x215a90(t) { }
                         },
                         Me: function () {
                             var t = this;
-                            c.bi(), s.default.j("ajax/user/panel").done(function (e) {
+                            c.bi(), s.default.j("https://aniwaves.ru/ajax/user/panel").done(function (e) {
                                 t.je(e.result.html), c.le(e.result.user)
                             })
                         }
@@ -1578,7 +1578,7 @@ function _0x215a90(t) { }
                     d = n.FW.define("UserPlayingRemove", {
                         u: function (t) {
                             t.click(function () {
-                                s.default.j("ajax/user/playing/delete", ["type", "POST", "data", ["id", t.data("id"), "_csrfToken", csrfToken]]).done(function (e) {
+                                s.default.j("https://aniwaves.ru/ajax/user/playing/delete", ["type", "POST", "data", ["id", t.data("id"), "_csrfToken", csrfToken]]).done(function (e) {
                                     r.Toast.J(e), e.result && (r.Broadcast.ot("playing:removed"), t.closest(".item").fadeOut())
                                 })
                             })
@@ -1588,7 +1588,7 @@ function _0x215a90(t) { }
                         u: function (t) {
                             t.click(function () {
                                 var t = 100 * Math.random();
-                                s.default.j("ajax/user/playing/clear", ["type", "POST", "data", ["req_id", t, "vrf", s.default.O(t), "_csrfToken", csrfToken]]).done(function (t) {
+                                s.default.j("https://aniwaves.ru/ajax/user/playing/clear", ["type", "POST", "data", ["req_id", t, "vrf", s.default.O(t), "_csrfToken", csrfToken]]).done(function (t) {
                                     r.Toast.J(t), 200 === t.status && setTimeout(function () {
                                         return window.location.reload()
                                     }, 2e3)
@@ -1605,7 +1605,7 @@ function _0x215a90(t) { }
                         },
                         Ue: function () {
                             var t = this;
-                            c.Ki() ? (this.Oe.hide(), s.default.j("ajax/user/favourite/get/".concat(this.Ee)).done(function (e) {
+                            c.Ki() ? (this.Oe.hide(), s.default.j("https://aniwaves.ru/ajax/user/favourite/get/".concat(this.Ee)).done(function (e) {
                                 200 === e.status && (t.Ae = e.result, t.Be(), t.Oe.show())
                             })) : this.Be()
                         },
@@ -1613,7 +1613,7 @@ function _0x215a90(t) { }
                             c.me() && t.stopPropagation()
                         },
                         Ve: function (t) {
-                            t = n.o(t.currentTarget).data("id"), this.Ae = t, this.Be(), s.default.j("ajax/user/favourite/save", ["type", "POST", "data", ["id", this.Ee, "folder", t, "_csrfToken", csrfToken]]).done(function (t) {
+                            t = n.o(t.currentTarget).data("id"), this.Ae = t, this.Be(), s.default.j("https://aniwaves.ru/ajax/user/favourite/save", ["type", "POST", "data", ["id", this.Ee, "folder", t, "_csrfToken", csrfToken]]).done(function (t) {
                                 r.Toast.J(t)
                             })
                         },
@@ -1640,7 +1640,7 @@ function _0x215a90(t) { }
                         },
                         We: function () {
                             var t, e = this;
-                            this.$e || (this.$e = !0, t = this.qe.hasClass("unwatched") ? 0 : 1, n.o.ajax("ajax/user/favourite/status", {
+                            this.$e || (this.$e = !0, t = this.qe.hasClass("unwatched") ? 0 : 1, n.o.ajax("https://aniwaves.ru/ajax/user/favourite/status", {
                                 type: "POST",
                                 data: {
                                     id: this.Ee,
@@ -1672,7 +1672,7 @@ function _0x215a90(t) { }
                                     var i = {};
                                     t.find(".folder[data-id]").each(function (t, e) {
                                         i[n.o(e).data("id")] = t
-                                    }), n.o.ajax("ajax/user/folder/sort", {
+                                    }), n.o.ajax("https://aniwaves.ru/ajax/user/folder/sort", {
                                         method: "POST",
                                         data: {
                                             orders: i
@@ -1691,7 +1691,7 @@ function _0x215a90(t) { }
                         },
                         Xe: function (t) {
                             var e = this;
-                            t = t.data("id"), s.default.j("ajax/user/folder/delete", ["type", "POST", "data", ["id", t]]).done(function (t) {
+                            t = t.data("id"), s.default.j("https://aniwaves.ru/ajax/user/folder/delete", ["type", "POST", "data", ["id", t]]).done(function (t) {
                                 r.Toast.J(t)
                             }).always(function () {
                                 e.Qe()
@@ -1699,7 +1699,7 @@ function _0x215a90(t) { }
                         },
                         Qe: function () {
                             var t = this;
-                            s.default.j("ajax/user/folder/list").done(function (e) {
+                            s.default.j("https://aniwaves.ru/ajax/user/folder/list").done(function (e) {
                                 c.de(e.result);
                                 var i = e.result;
                                 t.wt.find("li.folder-item").remove();
@@ -1711,7 +1711,7 @@ function _0x215a90(t) { }
                             var e = this,
                                 i = t.data("id"),
                                 a = t.find("input").val();
-                            s.default.j("ajax/user/folder/save", ["type", "POST", "data", ["id", i || 0, "name", a]]).done(function (t) {
+                            s.default.j("https://aniwaves.ru/ajax/user/folder/save", ["type", "POST", "data", ["id", i || 0, "name", a]]).done(function (t) {
                                 e.Qe(), r.Toast.J(t)
                             }).always(function () {
                                 e.Ze(t)
@@ -1750,7 +1750,7 @@ function _0x215a90(t) { }
                         },
                         hs: function (t) {
                             var e = this;
-                            this.ss && this.ss != this.Ee && s.default.j("ajax/member/users/avatar", ["type", "POST", "data", ["avatar_id", this.ss, "_csrfToken", csrfToken]]).done(function (t) {
+                            this.ss && this.ss != this.Ee && s.default.j("https://aniwaves.ru/ajax/member/users/avatar", ["type", "POST", "data", ["avatar_id", this.ss, "_csrfToken", csrfToken]]).done(function (t) {
                                 r.Toast.J(t), e.Ee = e.ss
                             })
                         },
@@ -1767,7 +1767,7 @@ function _0x215a90(t) { }
                                 i = [];
                             this.ci.filter(":not(.old)").each(function (t, e) {
                                 i.push(n.o(e).data("id"))
-                            }), i.length && n.o.ajax(app_vars.base_url + "ajax/notification/update", {
+                            }), i.length && n.o.ajax(app_vars.base_url + "https://aniwaves.ru/ajax/notification/update", {
                                 type: "POST",
                                 data: {
                                     action: "mark_as_read",
@@ -1782,7 +1782,7 @@ function _0x215a90(t) { }
                         },
                         ls: function () {
                             var t = this;
-                            this.cs.length && n.o.ajax(app_vars.base_url + "ajax/notification/panel").done(function (e) {
+                            this.cs.length && n.o.ajax(app_vars.base_url + "https://aniwaves.ru/ajax/notification/panel").done(function (e) {
                                 200 === e.status && (t.cs.html(e.result.html), t.us.text(e.result.count), t.ci = t.cs.find("a.item"))
                             })
                         }
@@ -1885,7 +1885,7 @@ function _0x215a90(t) { }
                         },
                         Os: function () {
                             var t = this;
-                            a.o.ajax("ajax/watch2gether/room/episodes/".concat(this.ps, "/").concat(this._s)).done(function (e) {
+                            a.o.ajax("https://aniwaves.ru/ajax/watch2gether/room/episodes/".concat(this.ps, "/").concat(this._s)).done(function (e) {
                                 t.Us(e.result)
                             })
                         }
@@ -1899,7 +1899,7 @@ function _0x215a90(t) { }
                         },
                         Fs: function (t, e) {
                             var i = this;
-                            !this.Gs && "manual" == this.Ws && this.la() && n.default.j("ajax/watch2gether/room/change", ["type", "POST", "data", ["id", this.qs, "episode", t.data("id")]]).done(function (e) {
+                            !this.Gs && "manual" == this.Ws && this.la() && n.default.j("https://aniwaves.ru/ajax/watch2gether/room/change", ["type", "POST", "data", ["id", this.qs, "episode", t.data("id")]]).done(function (e) {
                                 200 !== e.status ? o.Toast.J(e) : i.N(10, {
                                     media: e.result,
                                     episode: t.data("num")
@@ -2086,7 +2086,7 @@ function _0x215a90(t) { }
                         },
                         Is: function (t) {
                             var e = this;
-                            n.default.j("ajax/watch2gether/room/start", ["type", "POST", "data", ["id", this.qs, "vrf", n.default.O(this.qs)]]).done(function (i) {
+                            n.default.j("https://aniwaves.ru/ajax/watch2gether/room/start", ["type", "POST", "data", ["id", this.qs, "vrf", n.default.O(this.qs)]]).done(function (i) {
                                 t || o.Toast.J(i), 200 === i.status && i.result && (e.Hs = !0, e.N(2), setTimeout(function () {
                                     return e.ya()
                                 }, 3e3), setTimeout(function () {
@@ -2096,13 +2096,13 @@ function _0x215a90(t) { }
                         },
                         As: function () {
                             var t = this;
-                            n.default.j("ajax/watch2gether/room/end", ["type", "POST", "data", ["id", this.qs, "vrf", n.default.O(this.qs)]]).done(function (e) {
+                            n.default.j("https://aniwaves.ru/ajax/watch2gether/room/end", ["type", "POST", "data", ["id", this.qs, "vrf", n.default.O(this.qs)]]).done(function (e) {
                                 o.Toast.J(e), 200 === e.status && e.result && (t.Js.html(e.result), t.la()) && t.N(3)
                             })
                         },
                         wa: function () {
                             var t = this;
-                            "manual" != this.Ws && n.default.j("ajax/watch2gether/room/end", ["type", "POST", "data", ["id", this.qs, "vrf", n.default.O(this.qs)]]).done(function (e) {
+                            "manual" != this.Ws && n.default.j("https://aniwaves.ru/ajax/watch2gether/room/end", ["type", "POST", "data", ["id", this.qs, "vrf", n.default.O(this.qs)]]).done(function (e) {
                                 if (200 === e.status) {
                                     try {
                                         t.Qs.pause()
@@ -2119,7 +2119,7 @@ function _0x215a90(t) { }
                         },
                         ca: function () {
                             var t, e, i = this;
-                            this.Ia || (this.Ia = !0, t = (this.na.data("page") || 0) + 1, e = !1, this.na.html(this.na.data("loader")), n.default.j("ajax/watch2gether/chat/list/".concat(this.qs), ["data", ["page", t]]).done(function (a) {
+                            this.Ia || (this.Ia = !0, t = (this.na.data("page") || 0) + 1, e = !1, this.na.html(this.na.data("loader")), n.default.j("https://aniwaves.ru/ajax/watch2gether/chat/list/".concat(this.qs), ["data", ["page", t]]).done(function (a) {
                                 if (200 === a.status) {
                                     for (var n = 0; n < a.result.messages.length; n++) i.Ea("chat", a.result.messages[n], !0);
                                     e = a.result.hasMore, i.na.data("page", t)
@@ -2132,7 +2132,7 @@ function _0x215a90(t) { }
                             var t, e = this;
                             s.Visitor.me() || "" === (t = a.o.trim(this.ea.val())) || this.Aa || (1e3 <= t.length ? o.Toast("Your message is too long", o.Toast.Z) : (this.Aa = !0, this.N(1, {
                                 content: t
-                            }) && this.ea.val(""), n.default.j("ajax/watch2gether/chat/save", ["type", "POST", "data", ["room_id", this.qs, "content", t, "vrf", n.default.O("".concat(this.qs).concat(t))]]).done(function (t) {
+                            }) && this.ea.val(""), n.default.j("https://aniwaves.ru/ajax/watch2gether/chat/save", ["type", "POST", "data", ["room_id", this.qs, "content", t, "vrf", n.default.O("".concat(this.qs).concat(t))]]).done(function (t) {
                                 t.result || o.Toast.J(t)
                             }).always(function () {
                                 e.Aa = !1
@@ -2310,7 +2310,7 @@ function _0x215a90(t) { }
                         an: function (t) {
                             r.Storage.set("rated.".concat(this.Ee), this.Qa), this.tn();
                             var e = h.default.M();
-                            h.default.j("ajax/anime/rate", ["type", "POST", "data", ["id", this.Ee, "score", this.Qa, "req_id", e, "vrf", s("".concat(this.Ee, "@").concat(this.Qa, "@").concat(e))]]).done(function (t) {
+                            h.default.j("https://aniwaves.ru/ajax/anime/rate", ["type", "POST", "data", ["id", this.Ee, "score", this.Qa, "req_id", e, "vrf", s("".concat(this.Ee, "@").concat(this.Qa, "@").concat(e))]]).done(function (t) {
                                 l.Toast.J(t)
                             })
                         },
@@ -2348,7 +2348,7 @@ function _0x215a90(t) { }
                             this.kn() && (t = [], e = "", this.A.each(function (i, a) {
                                 var n = (a = r.o(a)).data("value") || "";
                                 t.push(a.attr("name")), t.push(n), e += "".concat(n)
-                            }), t.push("id"), t.push(this.vn), t.push("vrf"), t.push(s(e)), h.default.j("ajax/episode/skiptime/save", ["type", "POST", "data", t]).done(function (t) {
+                            }), t.push("id"), t.push(this.vn), t.push("vrf"), t.push(s(e)), h.default.j("https://aniwaves.ru/ajax/episode/skiptime/save", ["type", "POST", "data", t]).done(function (t) {
                                 l.Toast.J(t)
                             }))
                         },
@@ -2834,7 +2834,7 @@ function _0x215a90(t) { }
                             }, 1e4), l.Broadcast.ot("video:unloaded"), this.ih || this.Ra.Gn();
                             var i = 1 === Number(d.Visitor.Et("auto_skip_intro")) ? 1 : 0,
                                 a = 1 === Number(d.Visitor.Et("auto_play")) ? 1 : 0;
-                            h.default.j("ajax/sources?id=" + t + "&asi=" + i + "&autoPlay=" + a).done(function (t) {
+                            h.default.j("https://aniwaves.ru/ajax/sources?id=" + t + "&asi=" + i + "&autoPlay=" + a).done(function (t) {
                                 if (200 !== t.status) e.Ra.zn(t.message);
                                 else {
                                     e.Ra.Br(t.result.url);
@@ -2850,7 +2850,7 @@ function _0x215a90(t) { }
                         },
                         Er: function (t, e) {
                             var i = this;
-                            t = t.data("ids"), h.default.j("ajax/server/list?servers=" + t).done(function (t) {
+                            t = t.data("ids"), h.default.j("https://aniwaves.ru/ajax/server/list?servers=" + t).done(function (t) {
                                 200 !== t.status ? i.Ra.zn(t.message) : (i.Ra.qr(t.result), setTimeout(function () {
                                     updateReportVisibility()
                                 }, 0), e && e())
@@ -2860,7 +2860,7 @@ function _0x215a90(t) { }
                         },
                         Os: function (t) {
                             var e = this;
-                            h.default.j("ajax/episode/list/".concat(this.Ee).concat(window.location.search), ["data", ["style", d.Visitor.Et("episode_list_style"), "vrf", s(this.Ee)]]).done(function (i) {
+                            h.default.j("https://aniwaves.ru/ajax/episode/list/".concat(this.Ee).concat(window.location.search), ["data", ["style", d.Visitor.Et("episode_list_style"), "vrf", s(this.Ee)]]).done(function (i) {
                                 200 !== i.status ? e.Ra.zn(i.message) : (e.Ra.Wr(i.result), t && t())
                             }).fail(function () {
                                 e.Ra.zn("Unable to load episodes.")
