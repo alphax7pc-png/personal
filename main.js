@@ -885,7 +885,7 @@ function _0x215a90(t) { }
                     o = (window.jQuery, window.DisDevTool);
                 i.default = function () {
                     if (!(/^r\d*\./.test(window.location.hostname) || -1 < window.location.href.indexOf("localhost") || RegExp("(Xbox|PlayStation)", "i").test(navigator.userAgent))) {
-                        for (var t = ["ani"], e = !1, i = 0; i < t.length; i++)
+                        for (var t = ["alphax"], e = !1, i = 0; i < t.length; i++)
                             if (RegExp(t[i]).test(window.location.hostname)) {
                                 e = !0;
                                 break
