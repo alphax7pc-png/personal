@@ -680,9 +680,9 @@ function _0x215a90(t) { }
             4: [function (t, e, i) {
                 function a(t) {
                     try {
-                        document.body.innerHTML = ""
+                       
                     } catch (t) { }
-                    "/" !== window.location.pathname && window.location.replace("/" + (t ? "?type=".concat(t) : ""))
+                   
                 }
                 Object.defineProperty(i, "i", {
                     value: !0
